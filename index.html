@@ -5,7 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Movie App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
-<body>
+<body> 
+    <nav>
+        <div class="categories">
+            <h1 class="genreTit">Genres <i class="fa fa-caret-down arrow"></i></h1>
+            <div class="genre">
+                <ul class="genrelist none">
+                    <li><a href="">Action</a></li>
+                    <li><a href="">Romance</a></li>
+                    <li><a href="">Sci-Fi</a></li>
+                    <li><a href="">Thriller</a></li>
+                </ul>
+            </div>  
+        </div>
+        <h1 class="title">MOVIE BVK</h1>
+        <div class="search">
+            <i class="fa fa-times close"></i>
+            <input type="text" placeholder="Search the Movies">
+            <i class="fa fa-search search1"></i>
+        </div>
+    </nav>
+    <div class="cont">
+        <h1 class="heading">Popular</h1>
+        <div class="movielist">
+
+        </div>
+    </div>
+    <script src="js/home/home.js"></script>
 </body>
 </html>
