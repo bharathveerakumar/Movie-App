@@ -1,4 +1,4 @@
-import { getPopular } from './movieData.js'
+import { getPopular, getTamil } from './movieData.js'
 
 let input=document.querySelector('input')
 let search=document.querySelector('.search1')
@@ -33,25 +33,30 @@ gentTit.addEventListener('click', ()=>{
 })
 
 right.addEventListener('click', ()=>{
-    if(l>-25*320) l-=200;
-    movList.style.left=(l)+"px"
-    console.log(movList.style.left)
+    movList.scrollBy(200, 0)
 })
 
 left.addEventListener('click', ()=>{
-    if(l<0) l+=200;
-    movList.style.left=(l)+"px"
+    movList.scrollBy(-200, 0)
 })
 
+// setInterval(() => {
+//     movList.scrollBy(300, 0)
+// }, 2000);
+
 let popMov=await getPopular()
+let tam=await getTamil()
+console.log(tam.items)
 let img='https://image.tmdb.org/t/p/w300'
 
 popMov.forEach(e=>{
+    let over=e.overview.toString()
     pop.innerHTML+=
     `<div class="movcont">
         <img src="${img+e.poster_path}">
         <div class="movdes">
-            
+            <h1><span>TITLE</span> : ${e.original_title}</h1>
+            <h1><span>OVERVIEW</span> : ${over.slice(0, 500)}</h1>
         </div>
     </div>    
     `

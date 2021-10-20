@@ -10,16 +10,16 @@ body{
     width: 100%;
 }
 
-::-webkit-scrollbar{
+body::-webkit-scrollbar{
     width: 10px;
 }
 
-::-webkit-scrollbar-track{
+body::-webkit-scrollbar-track{
     width: 10px;
     background-color: black;
 }
 
-::-webkit-scrollbar-thumb{
+body::-webkit-scrollbar-thumb{
     background-color: red;
     border-radius: 10px;
 }
@@ -130,10 +130,9 @@ a{
 }
 
 .cont{
-    margin-top: 15px;
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
-    overflow: hidden;
 }
 
 .movtype{
@@ -142,16 +141,22 @@ a{
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
+    margin: 25px 0;
 }
 
 .movielist{
-    position: relative;
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     margin-top: 25px;
-    align-self: flex-start;
-    left: 0%;
-    height: 500px;
+    height: 510px;
+    width: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+.movielist::-webkit-scrollbar{
+    height: 0;
 }
 
 .heading{
@@ -163,7 +168,7 @@ a{
 
 .movcont{
     position: relative;
-    width: 330px;
+    min-width: 330px;
     height: 500px;
     background-color: white;
     margin-left: 25px;
@@ -175,6 +180,34 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.movdes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: .5s;
+    background-color: rgba(5, 5, 5, 0.75);
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+
+.movcont:hover .movdes{
+    opacity: 1;
+}
+
+.movdes span{
+    color: red;
+}
+
+.movdes h1{
+    font-size: 20px;
 }
 
 img{
@@ -197,5 +230,8 @@ img{
     .title{
         font-size: 25px;
         letter-spacing: 1px;
+    }
+    .heading{
+        font-size: 35px;
     }
 }
