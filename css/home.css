@@ -10,6 +10,20 @@ body{
     width: 100%;
 }
 
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    width: 10px;
+    background-color: black;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: red;
+    border-radius: 10px;
+}
+
 nav{
     display: flex;
     flex-direction: row;
@@ -19,6 +33,9 @@ nav{
     height: 75px;
     background-color: rgb(27, 27, 27);
     padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .title{
@@ -87,9 +104,8 @@ input{
 .genrelist{
     position: absolute;
     background-color: black;
-    top: 60px;
-    width: 120px;
-    height: 200px;
+    top: 40px;
+    width: 150px;
     color: white;
     list-style: none;
 }
@@ -114,17 +130,57 @@ a{
 }
 
 .cont{
-    margin-top: 50px;
-    display: flex;
+    margin-top: 15px;
     flex-direction: column;
     align-items: flex-start;
+    overflow: hidden;
+}
+
+.movtype{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
     width: 100%;
+}
+
+.movielist{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+    align-self: flex-start;
+    left: 0%;
+    height: 500px;
 }
 
 .heading{
     margin-left: 25px;
     color: white;
     font-weight: bolder;
+    align-self: flex-start;
+}
+
+.movcont{
+    position: relative;
+    width: 330px;
+    height: 500px;
+    background-color: white;
+    margin-left: 25px;
+}
+
+.navi{
+    margin-top: 30px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 @media (max-width:600px) {

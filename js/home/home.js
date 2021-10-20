@@ -1,3 +1,5 @@
+import { getPopular } from './movieData.js'
+
 let input=document.querySelector('input')
 let search=document.querySelector('.search1')
 let close=document.querySelector('.close')
@@ -6,6 +8,10 @@ let cat=document.querySelector('.categories')
 let gentTit=document.querySelector('.genreTit')
 let span=document.querySelector('.arrow')
 let genList=document.querySelector('.genrelist')
+let pop=document.querySelector('.p')
+let movList=document.querySelector('.movielist')
+let right=document.querySelector('.right'), l=0
+let left=document.querySelector('.left')
 
 search.addEventListener('click', ()=>{
     input.classList.toggle('input')
@@ -26,11 +32,27 @@ gentTit.addEventListener('click', ()=>{
     genList.classList.toggle('none')
 })
 
-let popular='https://api.themoviedb.org/3/movie/popular?api_key=f1c9c70c76391cecff01913a1ee6ecd0'
+right.addEventListener('click', ()=>{
+    if(l>-25*320) l-=200;
+    movList.style.left=(l)+"px"
+    console.log(movList.style.left)
+})
 
-async function getPopular(){
-    let popu=await fetch(popular)
-    popu=await popu.json();
-    popu=popu.results
-    console.log(popu)
-}
+left.addEventListener('click', ()=>{
+    if(l<0) l+=200;
+    movList.style.left=(l)+"px"
+})
+
+let popMov=await getPopular()
+let img='https://image.tmdb.org/t/p/w300'
+
+popMov.forEach(e=>{
+    pop.innerHTML+=
+    `<div class="movcont">
+        <img src="${img+e.poster_path}">
+        <div class="movdes">
+            
+        </div>
+    </div>    
+    `
+})
