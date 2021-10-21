@@ -41,6 +41,8 @@ nav{
 .title{
     color: red;
     letter-spacing: 3px;
+    text-align: center;
+    margin-left: -40px;
 }
 
 .search{
@@ -94,6 +96,7 @@ input{
     color: white;
     font-size: 30px;
     font-weight: bolder;
+    flex: 1;
 }
 
 .genreTit:hover{
@@ -128,85 +131,50 @@ a{
     transform: rotate(180deg);
 }
 
+.none{
+    display: none;
+}
+
 .cont{
     width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.movtype{
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    width: 100%;
-    margin: 25px 0;
+    padding: 15px;
 }
 
-.movielist{
+.genreCont{
+    margin-top: 15px;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    margin-top: 25px;
-    height: 510px;
-    width: 100%;
-    overflow: auto;
-    scroll-behavior: smooth;
-}
-
-.movielist::-webkit-scrollbar{
-    height: 0;
-}
-
-.heading{
-    margin-left: 25px;
-    color: white;
-    font-weight: bolder;
-    align-self: flex-start;
-}
-
-.movcont{
-    position: relative;
-    min-width: 330px;
-    height: 500px;
-    background-color: white;
-    margin-left: 25px;
-}
-
-.navi{
-    margin-top: 30px;
-    width: 150px;
-    display: flex;
     align-items: center;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
-.movdes{
+.movieCont{
+    position: relative;
+    width: 300px;
+    height: 500px;
+    background-color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.movDes{
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    position: absolute;
+    transition: .5s;
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: .5s;
     background-color: rgba(5, 5, 5, 0.75);
-    text-align: center;
-    color: white;
     padding: 10px;
-}
-
-.movcont:hover .movdes{
-    opacity: 1;
-}
-
-.movdes span{
-    color: red;
-}
-
-.movdes h1{
-    font-size: 20px;
 }
 
 img{
@@ -215,13 +183,26 @@ img{
     height: 100%;
 }
 
-.more{
+.movieCont:hover .movDes{
+    opacity: 1;
+}
+
+.movDes span{
+    color: red;
+}
+
+.movDes h3{
+    font-size: 20px;
+    text-align: center;
+}
+
+.movDes a{
     padding: 15px;
     background-color: red;
     transition: .5s;
 }
 
-.more:hover{
+.movDes a:hover{
     background-color: white;
     color: red;
 }
@@ -261,7 +242,7 @@ img{
     background-color: red;
 }
 
-@media (max-width:600px) {
+@media (max-width:600px){
     nav{
         justify-content: space-between;
         padding: 10px;
@@ -275,9 +256,6 @@ img{
     .title{
         font-size: 25px;
         letter-spacing: 1px;
-    }
-    .heading{
-        font-size: 35px;
     }
     .search ul{
         width: 345px;
