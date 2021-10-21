@@ -11,7 +11,7 @@ let genList=document.querySelector('.genrelist')
 let movList=document.querySelectorAll('.movielist')
 let right=document.querySelector('.right'), l=0
 let left=document.querySelector('.left')
-let searchList=document.querySelector('.search ul')
+let searchList=document.querySelector('.search ul'), sc=0, flags=1
 
 search.addEventListener('click', ()=>{
     input.classList.toggle('input')
@@ -23,7 +23,7 @@ search.addEventListener('click', ()=>{
 })
 
 close.addEventListener('click', ()=>{
-    input.classList.remove('input')
+    input.classList.toggle('input')
     close.classList.remove('closec')
     title.classList.toggle('none')
     cat.classList.toggle('none')
@@ -43,14 +43,16 @@ right.addEventListener('click', ()=>{
 })
 
 left.addEventListener('click', ()=>{
-    movList.forEach(e=>{
+    movList.forEach(e=>{    
         e.scrollBy(-250, 0)
     })
 })
 
 movList.forEach(e=>{
     setInterval(() => {
-        e.scrollBy(320, 0)
+        if(sc<127&&flags) e.scrollBy(320, 0), sc++
+        else if(sc!=0) flags=0, e.scrollBy(-320, 0), sc--
+        else flags=1
     }, 3000);
 })
 

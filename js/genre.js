@@ -28,7 +28,7 @@ genre.items.forEach(e=>{
         <img src="${img+e.poster_path}">
         <div class="movDes">
             <h3><span>TITLE : </span>${e.original_title}</h3>
-            <h3><span>OVERVIEW : </span>${over.slice(0, 300)}</h3>
+            <h3><span>OVERVIEW : </span>${over.slice(0, 200)}</h3>
             <a href="movieDet.html?id=${e.id}">More</a>
         </div>
     </div>`
