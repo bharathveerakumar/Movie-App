@@ -18,9 +18,15 @@ for(var i=0;i<3;i++){
     poster.appendChild(img)
 }
 
-let imgs=document.querySelector('img'), l=0
+let imgs=document.querySelectorAll('img'), l=0, r=0
+imgs.forEach(e=>{
+    e.style.left=l+'%'
+    l+=100
+})
+l=100, i=0
 setInterval(() => {
-    imgs.style.left=l+`%`
-    l+=35
-    console.log(imgs.style)
+    if(i==3) i=0, r++
+    if(r%2) imgs[i].style.left=0+'%'
+    else imgs[i].style.left=(i*100)+'%'
+    i++
 }, 2000);
