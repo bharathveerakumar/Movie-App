@@ -87,8 +87,7 @@ export function listGen(popMovi){
 input.addEventListener('input', async ()=>{
     let searchRes=await search12(input.value)
     let html=searchRes.results.map((e)=>{
-        return `<li><a href="movieDet.html?${e.id}">${e.original_title}</a></li>`
+        return `<li><a href="movieDet.html?id=${e.id}">${e.original_title}</a></li>`
     }).join('')
-    console.log(html)
     searchList.innerHTML=html
 })

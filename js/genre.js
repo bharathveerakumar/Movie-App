@@ -63,7 +63,6 @@ input.addEventListener('input', async ()=>{
     let html=searchRes.results.map((e)=>{
         return `<li><a href="movieDet.html?${e.id}">${e.original_title}</a></li>`
     }).join('')
-    console.log(html)
     searchList.innerHTML=html
 })
 

@@ -45,3 +45,15 @@ export async function search12(value){
     search=await search.json()
     return search
 }
+
+export async function getMovies(id){
+    let getMovie=await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=f1c9c70c76391cecff01913a1ee6ecd0`)
+    getMovie=await getMovie.json()
+    return getMovie
+}
+
+export async function getImages(id){
+    let getImg=await fetch(`https://api.themoviedb.org/3/movie/${id}/images?api_key=f1c9c70c76391cecff01913a1ee6ecd0`)
+    getImg=await getImg.json()
+    return getImg
+}
