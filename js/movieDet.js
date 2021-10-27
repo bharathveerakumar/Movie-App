@@ -4,7 +4,7 @@ let q=window.location.href
 let url=new URL(q)
 let id=url.searchParams.get('id')
 
-let imgUrl='https://image.tmdb.org/t/p/w400'
+let imgUrl='https://image.tmdb.org/t/p/w200'
 
 let search =await getMovies(id);
 let getImg=await getImages(id);
@@ -61,13 +61,75 @@ det.innerHTML+=`
             </div>
         </div>
         <div class="overview">
-            <h2>OVERVIEW:</h2>
+            <h2><span>OVERVIEW</span> :</h2>
             <h3>${search.overview}</h3>
+            <h3><span>STATUS</span> : ${search.status}</h3>
             <h3><span>RELEASE DATE</span> : ${search.release_date}</h3>
-            <h3><span>BUDGET</span> : ${search.budget}</h3>
+            <h3><span>BUDGET</span> : $${search.budget}</h3>
+            <h2><span>CAST</span> :</h2>
+        </div>
+        <div class="media">
         </div>
         `
+
 let ratingColor=document.querySelector('.ratingColor')
+let over=document.querySelector('.overview')
 ratingColor.style.width=search.vote_average*10+'%'
 
-console.log(casts, search)
+let cast=document.createElement('div')
+let crew=document.createElement('div')
+cast.className='cast'
+crew.className='cast'
+for(var j=0;j<10;j++){
+    cast.innerHTML+=`
+            <div class="card">
+                <img src="${imgUrl}${casts.cast[j].profile_path}" class="imgc">
+                <h4>${casts.cast[j].name}</h4>
+            </div>
+    `
+}
+for(j=0;j<10;j++){
+    crew.innerHTML+=`
+            <div class="card">
+                <img src="${imgUrl}${casts.crew[j].profile_path}" class="imgc">
+                <h4>${casts.crew[j].name}</h4>
+            </div>
+    `
+}
+
+let but=document.createElement('button')
+let but1=document.createElement('button')
+but.innerHTML='View More'
+but1.innerHTML='View More'
+cast.appendChild(but)
+crew.appendChild(but1)
+
+but.addEventListener('click', ()=>{
+    cast.innerHTML=''
+    casts.cast.forEach(e=>{
+        cast.innerHTML+=`
+        <div class="card">
+            <img src="${imgUrl}${e.profile_path}" class="imgc">
+            <h4>${e.name}</h4>
+        </div> 
+        `
+    })  
+})
+
+but1.addEventListener('click', ()=>{
+    crew.innerHTML=''
+    casts.crew.forEach(e=>{
+        crew.innerHTML+=`
+        <div class="card">
+            <img src="${imgUrl}${e.profile_path}" class="imgc">
+            <h4>${e.name}</h4>
+        </div> 
+        `
+    })  
+})
+
+over.appendChild(cast)
+over.innerHTML+='<h2><span>CREW</span> : </h2>'
+over.appendChild(crew)
+
+
