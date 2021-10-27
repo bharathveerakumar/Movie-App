@@ -57,3 +57,9 @@ export async function getImages(id){
     getImg=await getImg.json()
     return getImg
 }
+
+export async function getCast(id){
+    let getCast=await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=f1c9c70c76391cecff01913a1ee6ecd0`)
+    getCast=await getCast.json()
+    return getCast
+}
