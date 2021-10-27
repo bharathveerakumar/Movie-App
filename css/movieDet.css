@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .cont{
@@ -12,17 +13,80 @@
     justify-content: space-between;
 }
 
-.poster{
-    position: relative;
-    width: 35%;
+.postCont{
+    width: 35vw;
     height: 100vh;
     overflow: hidden;
 }
 
-img{
+.poster{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    transition: 2s;
+}
+
+.details{
+    position: relative;
+    width: 75vw;
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: rgb(0, 0, 0, 0.8);
+}
+
+.details::-webkit-scrollbar{
+    background-color: black;
+    width: 15px;
+}
+
+.details::-webkit-scrollbar-thumb{
+    background-color: red;
+    width: 15px;
+}
+
+.detTit{
+    position: absolute;
+    width: 100%;
+}
+
+.backdrops{
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+}
+
+.pos{
     position: absolute;
     width: 100%;
     height: 100%;
-    left: 0;
-    transition: .5s;
+}
+
+.detCont{
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    padding: 5%;
+    color: white;
+}
+
+@media (max-width:700px){
+    .cont{
+        flex-direction: column;
+    }
+    
+    .postCont{
+        width: 100vw;
+        height: 45vh;
+    }
+
+    .details{
+        width: 100vw;
+        height: 55vh;
+    }
+
+    .pos{
+        height: 45vh;
+    }
 }
