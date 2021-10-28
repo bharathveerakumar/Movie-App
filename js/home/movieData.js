@@ -63,3 +63,9 @@ export async function getCast(id){
     getCast=await getCast.json()
     return getCast
 }
+
+export async function getVdo(id){
+    let getVd=await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=f1c9c70c76391cecff01913a1ee6ecd0`)
+    getVd=await getVd.json()
+    return getVd
+}
